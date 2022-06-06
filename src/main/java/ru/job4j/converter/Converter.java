@@ -36,9 +36,9 @@ public class Converter {
         boolean passed = expected == out;
         System.out.println("140 rubles are 2. Test result : " + passed);
         float inDol = 240;
-        double expectedDol = 4;
+        float expectedDol = 4;
         float outDol = Converter.rubleToDollar(inDol);
         boolean passedDol = expectedDol == outDol;
-        System.out.println("170 rubles are 2,83. Test result : " + passedDol);
+        System.out.println("240 rubles are 4. Test result : " + passedDol);
     }
 }
