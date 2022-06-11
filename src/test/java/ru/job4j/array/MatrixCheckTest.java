@@ -35,8 +35,8 @@ public class MatrixCheckTest {
                 {' ', ' ', ' '},
                 {' ', ' ', 'X'},
         };
-        int column = 2;
-        boolean result = MatrixCheck.monoHorizontal(input, column);
+        int row = 2;
+        boolean result = MatrixCheck.monoHorizontal(input, row);
         Assert.assertFalse(result);
     }
 
