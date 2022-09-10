@@ -1,27 +1,27 @@
 package ru.job4j.array;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Matrix {
-
-    public static int[][] multiple(int size) {
-       int[][] newArray = new int[size][size];
-       for (int i = 0; i < size; i++) {
-           for (int j = 0; j < size; j++) {
-               newArray[i][j] = (i + 1) * (j + 1);
-           }
-       }
-       return newArray;
-   }
-
     public static void main(String[] args) {
-        try (FileOutputStream out = new FileOutputStream("matrix.txt", true)) {
-            out.write(Arrays.deepToString(Matrix.multiple(9)).getBytes());
-            out.write(System.lineSeparator().getBytes());
-        } catch (Exception e) {
+        try (FileOutputStream out = new FileOutputStream("matrix.txt")) {
+            int[][] matrix = new int[9][9];
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix.length; j++) {
+                    matrix[i][j] = (i + 1) * (j + 1);
+                    out.write(String.valueOf(matrix[i][j]).getBytes());
+                    if (String.valueOf(matrix[i][j]).length() == 1) {
+                        out.write(" ".getBytes());
+                    }
+                    out.write(" ".getBytes());
+
+                }
+                out.write(System.lineSeparator().getBytes());
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    }
-
+}
